@@ -319,12 +319,21 @@ details p {
   justify-items: center;
 }
 
+.hero-cluster {
+  width: min(100%, 760px);
+  margin: 22px auto 0;
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+}
+
 .hero-actions {
   display: flex;
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-top: 22px;
+  width: 100%;
+  margin-top: 0;
 }
 
 .button {
@@ -381,8 +390,8 @@ details {
 .contact-ribbon {
   display: grid;
   gap: 8px;
-  margin-top: 26px;
-  width: min(100%, 760px);
+  margin-top: 0;
+  width: 100%;
   padding: 18px 20px;
   border-radius: var(--radius-lg);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
@@ -406,8 +415,8 @@ details {
 
 .mini-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 760px);
-  margin-top: 22px;
+  width: 100%;
+  margin-top: 0;
 }
 
 .mini-card {
