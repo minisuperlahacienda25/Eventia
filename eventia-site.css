@@ -238,8 +238,9 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: 28px;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 34px;
   padding: 34px;
   overflow: hidden;
   background:
@@ -311,6 +312,13 @@ details p {
   font-size: 1.12rem;
 }
 
+.hero-copy {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+}
+
 .hero-actions {
   display: flex;
   justify-content: center;
@@ -374,6 +382,7 @@ details {
   display: grid;
   gap: 8px;
   margin-top: 26px;
+  width: min(100%, 760px);
   padding: 18px 20px;
   border-radius: var(--radius-lg);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
@@ -397,6 +406,7 @@ details {
 
 .mini-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 760px);
   margin-top: 22px;
 }
 
@@ -414,6 +424,8 @@ details {
 .hero-visual {
   display: grid;
   gap: 18px;
+  width: min(100%, 980px);
+  margin: 0 auto;
   align-content: start;
 }
 
