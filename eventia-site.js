@@ -1,6 +1,6 @@
 const BUSINESS_NAME = "EVENTIA";
-const WHATSAPP_NUMBER = "523521329745";
-const DISPLAY_WHATSAPP = "+52 352 132 9745";
+const WHATSAPP_NUMBER = "523523136025";
+const DISPLAY_WHATSAPP = "+52 352 313 6025";
 
 const buildWhatsAppLink = (message) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
