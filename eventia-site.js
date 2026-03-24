@@ -23,6 +23,17 @@ const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 
+const setMenuState = (isOpen) => {
+  if (!menuToggle || !siteNav) {
+    return;
+  }
+
+  siteNav.classList.toggle("is-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  siteNav.setAttribute("aria-hidden", String(!isOpen));
+  document.body.classList.toggle("menu-open", isOpen);
+};
+
 phoneTargets.forEach((node) => {
   node.textContent = DISPLAY_WHATSAPP;
 });
@@ -37,22 +48,17 @@ whatsappTargets.forEach((node) => {
 });
 
 const closeMenu = () => {
-  if (!menuToggle || !siteNav) {
-    return;
-  }
-
-  menuToggle.setAttribute("aria-expanded", "false");
-  siteNav.classList.remove("is-open");
-  document.body.classList.remove("menu-open");
+  setMenuState(false);
 };
 
 if (menuToggle && siteNav) {
+  siteNav.setAttribute("aria-hidden", "true");
+
   menuToggle.addEventListener("click", (event) => {
     event.preventDefault();
     event.stopPropagation();
-    const isOpen = siteNav.classList.toggle("is-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    document.body.classList.toggle("menu-open", isOpen);
+    const isOpen = !siteNav.classList.contains("is-open");
+    setMenuState(isOpen);
   });
 
   siteNav.addEventListener("click", (event) => {
@@ -71,6 +77,12 @@ if (menuToggle && siteNav) {
 
   navLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 860) {
+      closeMenu();
+    }
   });
 }
 

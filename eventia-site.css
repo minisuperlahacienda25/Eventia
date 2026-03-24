@@ -1268,31 +1268,26 @@ body.menu-open {
   }
 
   .site-nav {
-    position: absolute;
+    position: fixed;
     left: 12px;
     right: 12px;
-    top: calc(100% + 10px);
-    display: grid;
+    top: calc(env(safe-area-inset-top, 0px) + 86px);
+    display: none;
     gap: 10px;
     padding: 14px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 28px;
-    background: rgba(8, 24, 32, 0.94);
+    background: rgba(8, 24, 32, 0.98);
     backdrop-filter: blur(20px);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-    pointer-events: none;
-    z-index: 5;
-    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.26);
+    max-height: min(72vh, calc(100dvh - 110px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 60;
+    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.32);
   }
 
   .site-nav.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
+    display: grid;
   }
 
   .nav-shell {
@@ -1323,6 +1318,8 @@ body.menu-open {
   }
 
   .site-nav a {
+    width: 100%;
+    min-height: 48px;
     justify-content: center;
   }
 
