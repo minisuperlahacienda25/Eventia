@@ -47,10 +47,16 @@ const closeMenu = () => {
 };
 
 if (menuToggle && siteNav) {
-  menuToggle.addEventListener("click", () => {
+  menuToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     const isOpen = siteNav.classList.toggle("is-open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     document.body.classList.toggle("menu-open", isOpen);
+  });
+
+  siteNav.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 
   document.addEventListener("click", (event) => {
